@@ -3,7 +3,7 @@ name: Pylint
 on: [push]
 
 jobs:
-  build:
+  code-scan:
 
     runs-on: ubuntu-latest
 
