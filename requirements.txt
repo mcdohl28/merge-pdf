@@ -1,0 +1,6 @@
+###### Requirements without Version Specifiers ######`
+wheel
+setuptools
+PyPDF2
+
+###### Requirements with Version Specifiers ######`
