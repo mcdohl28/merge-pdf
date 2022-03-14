@@ -6,17 +6,19 @@ This application merges all pdf within this folder to an output pdf files.
 4. write to output file.
 """
 import os
-from PyPDF2 import PdfFileMerger
+from PyPDF2 import PdfFileMerger, PdfFileReader
 
-x = [a for a in os.listdir() if a.endswith(".pdf")]
+filelist = [a for a in os.listdir() if a.endswith(".pdf")]
 
 # list down for checking list of pdf to merge.
-print(x)
+print(filelist)
 
 merger = PdfFileMerger()
 
-for pdf in x:
-    merger.append(open(pdf, 'rb'))
+for pdf in filelist:
+    with open(pdf, 'rb') as source:
+        tmp = PdfFileReader(source)
+        merger.append(tmp)
 
 # to rename the pdf file after executing.
 OUTPUT_FILE="output-final.pdf"
